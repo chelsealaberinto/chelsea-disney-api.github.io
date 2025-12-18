@@ -1,0 +1,251 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    overflow-x: hidden;
+}
+
+
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #e3f2fd, #fffde7);
+}
+
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+    filter: blur(40px);
+    animation: floatShapes infinite alternate ease-in-out;
+}
+
+
+.shape:nth-child(1) {
+    background: #2196F3;
+    width: 60vh;
+    height: 60vh;
+    top: -10%;
+    left: -10%;
+    animation-duration: 18s;
+}
+
+
+.shape:nth-child(2) {
+    background: #FFEB3B;
+    width: 70vh;
+    height: 70vh;
+    bottom: -15%;
+    right: -15%;
+    animation-duration: 22s;
+    animation-delay: -4s;
+}
+
+
+.shape:nth-child(3) {
+    background: #4CAF50;
+    width: 50vh;
+    height: 50vh;
+    bottom: 20%;
+    left: 10%;
+    animation-duration: 20s;
+    animation-delay: -8s;
+}
+
+
+.shape:nth-child(4) {
+    background: #E91E63;
+    width: 55vh;
+    height: 55vh;
+    top: 20%;
+    right: 15%;
+    animation-duration: 25s;
+    animation-delay: -2s;
+}
+
+
+@keyframes floatShapes {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(80px, -40px) scale(1.1) rotate(15deg);
+    }
+
+    66% {
+        transform: translate(-60px, 60px) scale(0.9) rotate(-10deg);
+    }
+
+    100% {
+        transform: translate(40px, 90px) scale(1.05) rotate(5deg);
+    }
+}
+
+
+.glass-clear {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+}
+
+
+.navigation {
+    transition: background-color 0.4s ease;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+}
+
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.featured-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    color: white;
+    min-height: 80vh;
+}
+
+
+.featured-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://lumiere-a.akamaihd.net/v1/images/open-graph-zootopia_a8795d21.jpeg?region=0,0,600,315') center/cover no-repeat;
+    transition: transform 10s ease;
+}
+
+
+.featured-card:hover .featured-bg {
+    transform: scale(1.05);
+}
+
+
+.featured-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
+    backdrop-filter: blur(3px);
+}
+
+
+.rating-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 6px solid #FFC107;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+
+.genre-badge {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+.movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+.modal-content.glass-modal {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+.page-link {
+    color: #dc3545;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 0 5px;
+    border-radius: 50% !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+
+.page-link:hover {
+    background-color: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+
+.page-item.active .page-link {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+
+.page-item.disabled .page-link {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ccc;
+    border-color: transparent;
+}
+
+
+.page-link.long-text {
+    width: auto;
+    border-radius: 20px !important;
+    padding: 0 20px;
+}
+
+.hidden {
+    display: none !important;
+}

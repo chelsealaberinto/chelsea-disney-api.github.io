@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,238 +9,9 @@
     <link rel="icon" type="image/png" href="assets/sea logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: transparent;
-            overflow-x: hidden;
-        }
-
-        .background-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: linear-gradient(to bottom right, #e3f2fd, #fffde7);
-        }
-
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            mix-blend-mode: multiply;
-            opacity: 0.7;
-            filter: blur(40px);
-            animation: floatShapes infinite alternate ease-in-out;
-        }
-
-        .shape:nth-child(1) {
-            background: #2196F3;
-            width: 60vh;
-            height: 60vh;
-            top: -10%;
-            left: -10%;
-            animation-duration: 18s;
-        }
-
-        .shape:nth-child(2) {
-            background: #FFEB3B;
-            width: 70vh;
-            height: 70vh;
-            bottom: -15%;
-            right: -15%;
-            animation-duration: 22s;
-            animation-delay: -4s;
-        }
-
-        .shape:nth-child(3) {
-            background: #4CAF50;
-            width: 50vh;
-            height: 50vh;
-            bottom: 20%;
-            left: 10%;
-            animation-duration: 20s;
-            animation-delay: -8s;
-        }
-
-        .shape:nth-child(4) {
-            background: #E91E63;
-            width: 55vh;
-            height: 55vh;
-            top: 20%;
-            right: 15%;
-            animation-duration: 25s;
-            animation-delay: -2s;
-        }
-
-        @keyframes floatShapes {
-            0% {
-                transform: translate(0, 0) scale(1) rotate(0deg);
-            }
-
-            33% {
-                transform: translate(80px, -40px) scale(1.1) rotate(15deg);
-            }
-
-            66% {
-                transform: translate(-60px, 60px) scale(0.9) rotate(-10deg);
-            }
-
-            100% {
-                transform: translate(40px, 90px) scale(1.05) rotate(5deg);
-            }
-        }
-
-        .glass-clear {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(100px);
-            -webkit-backdrop-filter: blur(100px);
-        }
-
-
-        .navigation {
-            transition: background-color 0.4s ease;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-
-        .featured-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            color: white;
-            min-height: 80vh;
-        }
-
-        .featured-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://lumiere-a.akamaihd.net/v1/images/open-graph-zootopia_a8795d21.jpeg?region=0,0,600,315') center/cover no-repeat;
-            transition: transform 10s ease;
-        }
-
-        .featured-card:hover .featured-bg {
-            transform: scale(1.05);
-        }
-
-        .featured-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
-            backdrop-filter: blur(3px);
-        }
-
-        .rating-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 6px solid #FFC107;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 900;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-        }
-
-        .genre-badge {
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 50px;
-            padding: 8px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-
-        .movie-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-        }
-
-        .movie-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-
-        .modal-content.glass-modal {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-
-        .page-link {
-            color: #dc3545;
-            background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            margin: 0 5px;
-            border-radius: 50% !important;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .page-link:hover {
-            background-color: #dc3545;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
-        }
-
-        .page-item.active .page-link {
-            background-color: #dc3545;
-            border-color: #dc3545;
-            color: white;
-            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
-        }
-
-        .page-item.disabled .page-link {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #ccc;
-            border-color: transparent;
-        }
-
-        .page-link.long-text {
-            width: auto;
-            border-radius: 20px !important;
-            padding: 0 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
+
 
 <body>
     <div class="position-fixed top-0 start-0 vh-100 w-100" style="z-index: -5;">
@@ -251,6 +23,7 @@
         </div>
     </div>
     <div class="position-fixed top-0 start-0 vh-100 w-100 glass-clear" style="z-index: -3;"></div>
+
 
     <div class="container-fluid position-sticky top-0 p-0 p-lg-3 z-3">
         <div class="container-xl p-0">
@@ -277,49 +50,56 @@
         </div>
     </div>
 
+
     <div class="container my-5" style="min-height: 80vh;">
 
-        <div class="featured-card mb-5 d-flex align-items-center">
+
+        <div id="zootopia" class="featured-card mb-5 d-flex flex-column flex-lg-row align-items-center">
             <div class="featured-bg"></div>
             <div class="featured-overlay"></div>
 
+
             <div class="position-relative p-5 w-100 h-100 d-flex align-items-center">
                 <div class="row align-items-center w-100">
-                    <div class="col-xl-8 col-lg-9 text-start">
-                        <div class="d-flex align-items-center gap-4 mb-4 text-light opacity-75 fw-bold ls-2">
+                    <div class="col-lg-8 col-md-12 text-center text-lg-start">
+                        <div
+                            class="d-flex flex-wrap flex-md-nowrap align-items-center gap-2 gap-md-4 mb-4 text-light opacity-75 fw-bold">
                             <span>2025</span><span>•</span><span>1h 40m</span><span>•</span><span>English</span>
                         </div>
 
-                        <h1 class="display-1 fw-black mb-4"
-                            style="font-weight: 900; font-size: 6rem; letter-spacing: -3px; color: #40C4FF; text-shadow: 0 5px 20px rgba(0,0,0,0.6);">
+
+                        <h1 class="display-1 fw-black mb-4" style="color:rgb(16, 16, 232)">
                             ZOOTOPIA <span style="color: #FFC107;">2</span>
                         </h1>
 
-                        <div class="d-flex gap-5 align-items-end">
+
+                        <div class="d-flex flex-column flex-md-row gap-4 align-items-center align-items-md-start">
                             <img src="https://lumiere-a.akamaihd.net/v1/images/movie_poster_zootopia_866a1bf2.jpeg?region=0,0,300,450"
-                                class="rounded-4 shadow-lg d-none d-md-block"
-                                style="width: 250px; border: 4px solid white; transform: rotate(-3deg);" alt="Poster">
+                                class="rounded-4 shadow-lg w-75 w-md-50 w-lg-auto" alt="Poster">
+
+
                             <div>
-                                <p class="lead mb-5 fs-4"
-                                    style="max-width: 600px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-weight: 500;">
+                                <p class="lead mb-4 fs-4">
                                     Detectives Judy Hopps and Nick Wilde find themselves on the twisting trail of a
-                                    mysterious mammal, but to crack the case, they'll have to go undercover like never
-                                    before.
+                                    mysterious
+                                    mammal, but to crack the case, they'll have to go undercover like never before.
                                 </p>
-                                <div class="d-flex gap-3 mb-5">
+                                <div
+                                    class="d-flex justify-content-center justify-content-md-start flex-wrap gap-2 mb-4">
                                     <span class="genre-badge">Comedy</span>
                                     <span class="genre-badge">Adventure</span>
                                     <span class="genre-badge">Animation</span>
                                 </div>
-                                <button class="btn btn-danger btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold fs-5"
+                                <button
+                                    class="btn btn-danger btn-lg rounded-pill px-4 px-md-5 py-3 shadow-lg fw-bold fs-5"
                                     onclick="showDetails(123)">
                                     ▶ Show Details
                                 </button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-xl-4 col-lg-3 d-none d-lg-flex justify-content-end align-items-center pe-5">
+                    <div
+                        class="col-lg-4 col-md-12 d-flex justify-content-center justify-content-lg-end align-items-center mt-4 mt-lg-0">
                         <div class="text-center">
                             <div class="rating-circle mx-auto mb-3 shadow-lg">9.2</div>
                             <h5 class="text-white fw-bold m-0">IMDb Rating</h5>
@@ -330,11 +110,14 @@
             </div>
         </div>
 
+
         <div class="text-center mb-5 mt-5 p-4 glass rounded-5" style="max-width: 300px; margin: 0 auto;">
             <h2 class="h5 fw-bold text-dark mb-0">Browse The Collection</h2>
         </div>
 
+
         <div class="row" id="contentArea"></div>
+
 
         <div class="d-flex justify-content-center mt-5">
             <nav aria-label="Page navigation">
@@ -342,6 +125,7 @@
             </nav>
         </div>
     </div>
+
 
     <div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -369,15 +153,19 @@
         </div>
     </div>
 
+
     <script>
         const contentArea = document.getElementById("contentArea");
         const paginationList = document.getElementById("paginationList");
         let movieModal;
         let currentPage = 1;
 
+
         document.addEventListener('DOMContentLoaded', () => {
             movieModal = new bootstrap.Modal(document.getElementById('movieModal'));
         });
+
+
         const createCard = (id, movieTitle, starName, image) => {
             if (!image) return '';
             return `
@@ -407,21 +195,27 @@
                 const json = await response.json();
                 const data = json.data;
 
+
                 document.getElementById('modalImage').src = data.imageUrl;
                 document.getElementById('modalCharacter').innerText = data.name;
+
 
                 const mainTitle = (data.films && data.films.length > 0) ? data.films[0] : "Disney Special";
                 document.getElementById('modalTitle').innerText = mainTitle;
                 document.getElementById('modalFilms').innerText = data.films.join(", ");
+
 
                 movieModal.show();
             } catch (err) {
                 console.error("Error fetching details:", err);
             }
         }
+
+
         const renderPagination = (info) => {
             paginationList.innerHTML = "";
             const totalPages = info.totalPages;
+
 
             const prevDisabled = currentPage === 1 ? 'disabled' : '';
             paginationList.innerHTML += `
@@ -451,20 +245,38 @@
                     <a class="page-link long-text" href="#" onclick="changePage(${currentPage + 1}); return false;">Next</a>
                 </li>`;
         }
+
+
         const changePage = (pageNum) => {
             if (pageNum < 1) return;
             getDisneyCinema(pageNum);
         }
+
+
         const getDisneyCinema = async (page = 1) => {
             currentPage = page;
+
+
+            const zootopiaCard = document.getElementById('zootopia');
+            if (zootopiaCard) {
+                if (page === 1) {
+                    zootopiaCard.classList.remove('hidden');
+                } else {
+                    zootopiaCard.classList.add('hidden');
+                }
+            }
+
+
             contentArea.innerHTML = `<div class="col-12 text-center p-5"><div class="spinner-border text-danger" role="status"></div></div>`;
             paginationList.innerHTML = "";
+
 
             try {
                 const response = await fetch(`https://api.disneyapi.dev/character?page=${page}&pageSize=50`);
                 const jsonData = await response.json();
                 const characters = jsonData.data;
                 const info = jsonData.info;
+
 
                 contentArea.innerHTML = "";
                 let hasContent = false;
@@ -484,20 +296,37 @@
                 contentArea.innerHTML = `<div class="col-12 text-center glass p-5 rounded-4 text-danger">Failed to load content.</div>`;
             }
         }
+
+
         const searchDisneyID = async (event) => {
             event.preventDefault();
-            const id = document.getElementById('searchInput').value;
-            if (!id) return;
+            const id = document.getElementById('searchInput').value.trim();
+
+
+            if (!id) {
+                getDisneyCinema(1);
+                return;
+            }
+
+
+            const zootopiaCard = document.getElementById('zootopia');
+            if (zootopiaCard) {
+                zootopiaCard.classList.add('hidden');
+            }
+
 
             paginationList.innerHTML = "";
             contentArea.innerHTML = `<div class="col-12 text-center p-5"><div class="spinner-border text-danger" role="status"></div></div>`;
+
 
             try {
                 const response = await fetch('https://api.disneyapi.dev/character/' + id);
                 if (!response.ok) throw new Error("Not found");
 
+
                 const jsonData = await response.json();
                 const item = jsonData.data;
+
 
                 contentArea.innerHTML = "";
                 if (item.imageUrl) {
@@ -510,10 +339,14 @@
                 contentArea.innerHTML = `<div class="col-12 text-center glass p-5 rounded-4"><h3 class="text-danger">Not Found</h3></div>`;
             }
         }
+
+
         getDisneyCinema(1);
     </script>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 
 </html>
